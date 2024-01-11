@@ -1,0 +1,15 @@
+{
+  "name": "quiz-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd quiz-server && npm install",
+    "start-server": "cd quiz-server && npm run start:dev",
+    "install-client": "cd quiz && npm install",
+    "build-client": "cd quiz && npm run build",
+    "start-client": "cd quiz && npm run start"
+  },
+  "author": "",
+  "license": "ISC"
+}
