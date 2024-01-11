@@ -11,7 +11,7 @@ export const QuizzesList = () => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          "https://quizapp-deploy.onrender.com/quiz/"
+          "https://quizapp-nfpb.onrender.com/quiz/"
         );
         setQuizzes(response.data);
       } catch (err) {

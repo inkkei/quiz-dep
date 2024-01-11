@@ -11,7 +11,7 @@ export const RandomQuiz = () => {
     const fetchQuestions = async () => {
       try {
         const response = await axios.get(
-          `https://quizapp-deploy.onrender.com/quiz/`
+          `https://quizapp-nfpb.onrender.com/quiz/`
         );
         setQuiz(
           response.data[Math.floor(Math.random() * response.data.length)]
