@@ -6,14 +6,15 @@ import { QuizCard } from "./QuizCard";
 
 export const QuizzesList = () => {
   const [quizzes, setQuizzes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await axios.get(
-          "https://quizapp-nfpb.onrender.com/quiz/"
-        );
-        setQuizzes(response.data);
+        await axios
+          .get("https://quizapp-nfpb.onrender.com/quiz/")
+          .then((response) => setQuizzes(response.data))
+          .finally(setLoading(false));
       } catch (err) {
         console.log(err);
       }
@@ -23,16 +24,20 @@ export const QuizzesList = () => {
 
   return (
     <>
-      <div className="quizzes-list">
-        <h2>Quizzes List</h2>
-        {quizzes.map((quiz) => {
-          return (
-            <Link to={`/quiz/${quiz._id}`}>
-              <QuizCard quiz={quiz} />
-            </Link>
-          );
-        })}
-      </div>
+      {loading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <div className="quizzes-list">
+          <h2>Quizzes List</h2>
+          {quizzes.map((quiz) => {
+            return (
+              <Link to={`/quiz/${quiz._id}`}>
+                <QuizCard quiz={quiz} />
+              </Link>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

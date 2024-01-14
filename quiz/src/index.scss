@@ -218,11 +218,33 @@ a{
   padding: 10px;
   margin-bottom: 20px;
 }
+
+
 .answers-group{
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
 }
+.answer-label-input{
+  display: flex;
+  max-height: 60px;
+  margin-left: 10px;
+}
+.answer-label{
+  border-radius: 10px 0px 0px 10px;
+  height: 19px;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #dbdada;
+  border: 0.5px solid blue;
+}
+.answer-input{
+  border-radius: 0px 10px 10px 0px;
+  min-height: 100%;
+  font-size: 16px;
+  border: 0.5px solid blue;
+}
+
+
 
 button.add-question-btn{
   background-color: #11d28b;

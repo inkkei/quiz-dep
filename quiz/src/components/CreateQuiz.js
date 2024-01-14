@@ -48,7 +48,7 @@ export const CreateQuiz = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("https://quizapp-deploy.onrender.com/quiz/", quiz);
+      await axios.post("https://quizapp-nfpb.onrender.com/quiz/", quiz);
       alert("Quiz Created!");
     } catch (error) {
       console.log(error);
@@ -98,47 +98,30 @@ export const CreateQuiz = () => {
                           }
                           checked={question.correctAnswer == answer_id}
                         ></input>
+                        <div className="answer-label-input">
+                          <label
+                            className="answer-label"
+                            htmlFor={`question-${question_id}-answer-${answer_id}`}
+                          >
+                            Answer № {answer_id + 1}
+                          </label>
 
-                        <label
-                          htmlFor={`question-${question_id}-answer-${answer_id}`}
-                        >
-                          <i> Answer № {answer_id + 1}</i>
-                        </label>
-
-                        <input
-                          type="text"
-                          id={`question-${question_id}-answer-${answer_id}`}
-                          name={`question-${question_id}-answer-${answer_id}`}
-                          key={answer_id}
-                          value={question.answers[answer_id] ?? ""}
-                          onChange={(event) =>
-                            handleAnswerChange(event, question_id, answer_id)
-                          }
-                        />
+                          <input
+                            className="answer-input"
+                            type="text"
+                            id={`question-${question_id}-answer-${answer_id}`}
+                            name={`question-${question_id}-answer-${answer_id}`}
+                            key={answer_id}
+                            value={question.answers[answer_id] ?? ""}
+                            onChange={(event) =>
+                              handleAnswerChange(event, question_id, answer_id)
+                            }
+                          />
+                        </div>
                       </div>
                     );
                   }
                 )}
-
-                {/*    <div className="answers-group">
-                  <input
-                    type="radio"
-                    id="answer"
-                    name="answer"
-                    value="1"
-                  ></input>
-
-                  <label htmlFor="answer-1">
-                    <i>Answer 1</i>
-                  </label>
-
-                  <input
-                    id="answer-1"
-                    key="answer-1"
-                    type="text"
-                    name="answer-1"
-                  />
-                </div> */}
               </>
             );
           })}
