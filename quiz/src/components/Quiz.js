@@ -10,18 +10,15 @@ export const Quiz = () => {
   const [questions, setQuestions] = useState([]);
   const [correct, setCorrect] = useState(0);
   const question = questions[step];
-  const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      setLoading(true);
       try {
         await axios
           .get(`https://quizapp-nfpb.onrender.com/quiz/${id}`)
-          .then((response) => setQuestions(response.data.questions))
-          .finally(setLoading(false));
+          .then((response) => setQuestions(response.data.questions));
       } catch (err) {
         console.log(err);
       }

@@ -7,6 +7,7 @@ export const Game = ({ step, question, onClickVariant, questionsLength }) => {
           style={{ width: `${percentage}%` }}
           className="progress__inner"
         ></div>
+        {step + 1 + "/" + questionsLength}
       </div>
       <h2>{question.question}</h2>
       <ul>
